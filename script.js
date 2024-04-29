@@ -1,52 +1,56 @@
 // Zmienne globalne
-let rainbowTextElement;
-let rainbowText
 
-// Funkcja tworzenia animowanego tekstu
-function createRainbowText() {
-    const maindiv = document.querySelector('.main');
-    maindiv.innerHTML = '';
-    const rainbowText = document.createElement('div');
-    rainbowText.classList.add('rainbow-text');
-    maindiv.appendChild(rainbowText);
-    return rainbowText;
+let RTexte;
+let RText
+
+//Tworzenie animowanego tekstu
+
+function CRTEXT() {
+    const maindiv = document.querySelector('.main')
+    maindiv.innerHTML = ''
+    const RText = document.createElement('div')
+    RText.classList.add('rainbow-text')
+    maindiv.appendChild(RText)
+    return RText
 }
 
-// Funkcja wstawiająca każdy znak w span
-function spans(rainbowText) {
-    const text = rainbowText.textContent;
-    const characters = text.split('');
-    rainbowText.textContent = '';
+//Wstawianie każdego znaku w span
+
+function spans(RText) {
+    const text = RText.textContent
+    const characters = text.split('')
+    RText.textContent = ''
     characters.forEach(char => {
-        const span = document.createElement('span');
-        span.textContent = char;
-        rainbowText.appendChild(span);
-    });
+        const span = document.createElement('span')
+        span.textContent = char
+        RText.appendChild(span)
+    })
 }
 
+//Inicjalizacja animowanego tekstu
 
-// Inicjalizacja animowanego tekstu
 document.addEventListener("DOMContentLoaded", function(event) {
-    rainbowTextElement = createRainbowText();
-    rainbowTextElement.textContent = 'Wybierz samochód';
-    spans(rainbowTextElement);
+    RTexte = CRTEXT()
+    RTexte.textContent = 'Wybierz samochód'
+    spans(RTexte)
 });
 
+//Obsługa zdarzenia najechania myszką
 
-// Obsługa zdarzenia najechania myszką
-document.addEventListener("mouseover", function(event) {
-    const element = document.querySelector('.utitle');
-    if (event.target === element) {
-        console.log('Najechano na przycisk!!!!!!!!!!!');
-        spans(rainbowTextElement);
-    }
-});
-
+document.addEventListener('DOMContentLoaded', function(event) {
+    const element = document.querySelector('.return')
+    element.addEventListener('mouseover', function () {
+        console.log("Zczytano najechanie poprawnie")
+        RTexte = CRTEXT()
+        RTexte.textContent = 'Wybierz samochód'
+        spans(RTexte)
+    })
+})
 
 //BMW
 //BMW - elementy
 
-const E36 = document.createElement("img");
+const E36 = document.createElement("img")
 E36.src = 'foto/bmw.png'
 E36.classList.add("kebab")
 E36.alt = "Ładne E36"
@@ -62,20 +66,20 @@ E36b.innerText = 'Zgruź'
 //BMW - sprawdzenie grafiki
 
 E36.addEventListener("load", function () {
-    console.log("Grafika BMW została załadowana");
+    console.log("Grafika BMW została załadowana")
 });
 
 //BMW - wstawianie elementów
 
 function wstaw1 () {
-    const maindiv1 = document.querySelector('.main');
+    const maindiv1 = document.querySelector('.main')
     if (maindiv1) {
         maindiv1.innerHTML = ''
         maindiv1.appendChild(E36)
         maindiv1.appendChild(E36p)
         maindiv1.append(E36b)
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
@@ -102,13 +106,13 @@ E36_grb.innerText = 'Odgruź'
 //BMW gruz - sprawdzenie grafiki
 
 E36_gr.addEventListener("load", function () {
-    console.log("Grafika BMW gruz została załadowana");
+    console.log("Grafika BMW gruz została załadowana")
 });
 
 //BMW gruz - wstawianie elementów
 
 function wstaw_gr1 () {
-    const maindiv_gr1 = document.querySelector('.main');
+    const maindiv_gr1 = document.querySelector('.main')
     if (maindiv_gr1) {
         maindiv_gr1.innerHTML = ''
         maindiv_gr1.appendChild(E36_gr)
@@ -116,7 +120,7 @@ function wstaw_gr1 () {
         maindiv_gr1.append(E36_grb)
         console.log("Funkcja wstaw_gr została wykonana")
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
@@ -145,20 +149,20 @@ OMGb.innerText = 'Zgruź'
 //Opel - sprawdzenie grafiki
 
 OMG.addEventListener("load", function () {
-    console.log("Grafika Opel została załadowana");
+    console.log("Grafika Opel została załadowana")
 });
 
 //Opel - wstawienie elementów
 
 function wstaw2 () {
-    const maindiv2 = document.querySelector('.main');
+    const maindiv2 = document.querySelector('.main')
     if (maindiv2) {
         maindiv2.innerHTML = ''
         maindiv2.appendChild(OMG)
         maindiv2.appendChild(OMGp)
         maindiv2.append(OMGb)
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
@@ -169,7 +173,7 @@ klik2.onclick = wstaw2
 
 //Opel gruz - elementy
 
-const OMG_gr = document.createElement("img");
+const OMG_gr = document.createElement("img")
 OMG_gr.src = 'foto/opel_gr.png'
 OMG_gr.classList.add("omega_gr")
 OMG_gr.alt = "Brzydka Omega"
@@ -185,13 +189,13 @@ OMG_grb.innerText = 'Odgruź'
 //Opel gruz - sprawdzenie grafiki
 
 OMG_gr.addEventListener("load", function () {
-    console.log("Grafika Opel gruz została załadowana");
-});
+    console.log("Grafika Opel gruz została załadowana")
+})
 
 //Opel gruz - wstawienie elememtów
 
 function wstaw_gr2 () {
-    const maindiv_gr2 = document.querySelector('.main');
+    const maindiv_gr2 = document.querySelector('.main')
     if (maindiv_gr2) {
         maindiv_gr2.innerHTML = ''
         maindiv_gr2.appendChild(OMG_gr)
@@ -199,7 +203,7 @@ function wstaw_gr2 () {
         maindiv_gr2.append(OMG_grb)
         console.log("Funkcja wstaw_gr2 została wykonana")
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
@@ -211,7 +215,7 @@ OMG_grb.addEventListener('click', wstaw2)
 //Honda
 //Honda - elementy:
 
-const CIV = document.createElement("img");
+const CIV = document.createElement("img")
 CIV.src = 'foto/civic.png'
 CIV.classList.add("civic")
 CIV.alt = "Ładny Civic"
@@ -227,20 +231,20 @@ CIVb.innerText = 'Zgruź'
 //Honda - sprawdzenie grafiki
 
 CIV.addEventListener("load", function () {
-    console.log("Grafika Honda została załadowana");
+    console.log("Grafika Honda została załadowana")
 });
 
 //Honda - wstawienie elementów
 
 function wstaw3 () {
-    const maindiv3 = document.querySelector('.main');
+    const maindiv3 = document.querySelector('.main')
     if (maindiv3) {
         maindiv3.innerHTML = ''
         maindiv3.appendChild(CIV)
         maindiv3.appendChild(CIVp)
         maindiv3.append(CIVb)
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
@@ -251,7 +255,7 @@ klik3.onclick = wstaw3
 
 //Honda gruz - elementy
 
-const CIV_gr = document.createElement("img");
+const CIV_gr = document.createElement("img")
 CIV_gr.src = 'foto/civic_gr.png'
 CIV_gr.classList.add("civic_gr")
 CIV_gr.alt = "Brzydki Civic"
@@ -267,13 +271,13 @@ CIV_grb.innerText = 'Odgruź'
 //Honda gruz - sprawdzenie grafiki
 
 CIV_gr.addEventListener("load", function () {
-    console.log("Grafika Honda gruz została załadowana");
+    console.log("Grafika Honda gruz została załadowana")
 });
 
 //Honda gruz - wstawienie elememtów
 
 function wstaw_gr3 () {
-    const maindiv_gr3 = document.querySelector('.main');
+    const maindiv_gr3 = document.querySelector('.main')
     if (maindiv_gr3) {
         maindiv_gr3.innerHTML = ''
         maindiv_gr3.appendChild(CIV_gr)
@@ -281,7 +285,7 @@ function wstaw_gr3 () {
         maindiv_gr3.append(CIV_grb)
         console.log("Funkcja wstaw_gr3 została wykonana")
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
@@ -293,7 +297,7 @@ CIV_grb.addEventListener('click', wstaw3)
 //Golf
 //Golf - elementy:
 
-const GF = document.createElement("img");
+const GF = document.createElement("img")
 GF.src = 'foto/golf.png'
 GF.classList.add("golf")
 GF.alt = "Ładny Golf"
@@ -309,20 +313,20 @@ GFb.innerText = 'Zgruź'
 //Golf - sprawdzenie grafiki
 
 GF.addEventListener("load", function () {
-    console.log("Grafika Golf została załadowana");
+    console.log("Grafika Golf została załadowana")
 });
 
 //Golf - wstawienie elementów
 
 function wstaw4 () {
-    const maindiv4 = document.querySelector('.main');
+    const maindiv4 = document.querySelector('.main')
     if (maindiv4) {
         maindiv4.innerHTML = ''
         maindiv4.appendChild(GF)
         maindiv4.appendChild(GFp)
         maindiv4.append(GFb)
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
@@ -333,7 +337,7 @@ klik4.onclick = wstaw4
 
 //Golf gruz - elementy
 
-const GF_gr = document.createElement("img");
+const GF_gr = document.createElement("img")
 GF_gr.src = 'foto/golf_gr.png'
 GF_gr.classList.add("golf_gr")
 GF_gr.alt = "Brzydki Golf"
@@ -349,13 +353,13 @@ GF_grb.innerText = 'Odgruź'
 //Golf gruz - sprawdzenie grafiki
 
 GF_gr.addEventListener("load", function () {
-    console.log("Grafika Golf gruz została załadowana");
+    console.log("Grafika Golf gruz została załadowana")
 });
 
 //Golf gruz - wstawienie elememtów
 
 function wstaw_gr4 () {
-    const maindiv_gr4 = document.querySelector('.main');
+    const maindiv_gr4 = document.querySelector('.main')
     if (maindiv_gr4) {
         maindiv_gr4.innerHTML = ''
         maindiv_gr4.appendChild(GF_gr)
@@ -363,7 +367,7 @@ function wstaw_gr4 () {
         maindiv_gr4.append(GF_grb)
         console.log("Funkcja wstaw_gr4 została wykonana")
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
@@ -375,7 +379,7 @@ GF_grb.addEventListener('click', wstaw4)
 //Passat
 //Passat - elementy:
 
-const PS = document.createElement("img");
+const PS = document.createElement("img")
 PS.src = 'foto/passat.png'
 PS.classList.add("passat")
 PS.alt = "Ładny Passat"
@@ -391,20 +395,20 @@ PSb.innerText = 'Zgruź'
 //Passat - sprawdzenie grafiki
 
 PS.addEventListener("load", function () {
-    console.log("Grafika Passat została załadowana");
+    console.log("Grafika Passat została załadowana")
 });
 
 //Passat - wstawienie elementów
 
 function wstaw5() {
-    const maindiv5 = document.querySelector('.main');
+    const maindiv5 = document.querySelector('.main')
     if (maindiv5) {
         maindiv5.innerHTML = ''
         maindiv5.appendChild(PS)
         maindiv5.appendChild(PSp)
         maindiv5.append(PSb)
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
@@ -415,7 +419,7 @@ klik5.onclick = wstaw5
 
 //Passat gruz - elementy
 
-const PS_gr = document.createElement("img");
+const PS_gr = document.createElement("img")
 PS_gr.src = 'foto/passat_gr.png'
 PS_gr.classList.add("passat_gr")
 PS_gr.alt = "Brzydki Passat"
@@ -431,13 +435,13 @@ PS_grb.innerText = 'Odgruź'
 //Passat gruz - sprawdzenie grafiki
 
 PS_gr.addEventListener("load", function () {
-    console.log("Grafika Passat gruz została załadowana");
+    console.log("Grafika Passat gruz została załadowana")
 });
 
 //Passat gruz - wstawienie elememtów
 
 function wstaw_gr5 () {
-    const maindiv_gr5 = document.querySelector('.main');
+    const maindiv_gr5 = document.querySelector('.main')
     if (maindiv_gr5) {
         maindiv_gr5.innerHTML = ''
         maindiv_gr5.appendChild(PS_gr)
@@ -445,7 +449,7 @@ function wstaw_gr5 () {
         maindiv_gr5.append(PS_grb)
         console.log("Funkcja wstaw_gr5 została wykonana")
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
@@ -473,20 +477,20 @@ MICb.innerText = 'Zgruź'
 //Micra - sprawdzenie grafiki
 
 MIC.addEventListener("load", function () {
-    console.log("Grafika Micra została załadowana");
+    console.log("Grafika Micra została załadowana")
 });
 
 //Micra - wstawienie elementów
 
 function wstaw6() {
-    const maindiv6 = document.querySelector('.main');
+    const maindiv6 = document.querySelector('.main')
     if (maindiv6) {
         maindiv6.innerHTML = ''
         maindiv6.appendChild(MIC)
         maindiv6.appendChild(MICp)
         maindiv6.append(MICb)
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
@@ -497,7 +501,7 @@ klik6.onclick = wstaw6
 
 //Micra gruz - elementy
 
-const MIC_gr = document.createElement("img");
+const MIC_gr = document.createElement("img")
 MIC_gr.src = 'foto/nissan_gr.png'
 MIC_gr.classList.add("micra_gr")
 MIC_gr.alt = "Brzydki Nissan"
@@ -513,13 +517,13 @@ MIC_grb.innerText = 'Odgruź'
 //Micra gruz - sprawdzenie grafiki
 
 MIC_gr.addEventListener("load", function () {
-    console.log("Grafika Micra gruz została załadowana");
+    console.log("Grafika Micra gruz została załadowana")
 });
 
 //Micra gruz - wstawienie elememtów
 
 function wstaw_gr6 () {
-    const maindiv_gr6 = document.querySelector('.main');
+    const maindiv_gr6 = document.querySelector('.main')
     if (maindiv_gr6) {
         maindiv_gr6.innerHTML = ''
         maindiv_gr6.appendChild(MIC_gr)
@@ -527,7 +531,7 @@ function wstaw_gr6 () {
         maindiv_gr6.append(MIC_grb)
         console.log("Funkcja wstaw_gr6 została wykonana")
     } else {
-        console.error("Element '.main' nie istnieje.");
+        console.error("Element '.main' nie istnieje.")
     }
 }
 
